@@ -1,5 +1,6 @@
 # get_practicum_env
 classroom environment install and run jupyter scripts
+nvidia/cuda + miniconda + jupyter
 
 script mount `/opt/notebooks` as `/opt/notebooks` in container.<br />
 this is the jupyter root folder.
