@@ -1,4 +1,4 @@
-# get_practicum_env
+# get_classroom_env
 classroom environment install and run jupyter scripts<br />
 nvidia/cuda + miniconda + jupyter
 
