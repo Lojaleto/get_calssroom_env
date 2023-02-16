@@ -14,7 +14,7 @@ while true; do
     fi
 done
 
-docker exec $env bash export PATH=/usr/local/cuda-12.0/bin${PATH:+:${PATH}}
+docker exec $env bash -c "export PATH=/usr/local/cuda-12.0/bin${PATH:+:${PATH}}"
 
 while true; do
 
