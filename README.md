@@ -1,6 +1,6 @@
 # get_classroom_env
 classroom environment install and run jupyter scripts<br />
-nvidia/cuda + miniconda + jupyter
+based on tensorflow container
 
 script mount `/opt/notebooks` as `/opt/notebooks` in container.<br />
 this is the jupyter root folder.
