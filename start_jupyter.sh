@@ -14,11 +14,9 @@ while true; do
     fi
 done
 
-docker exec $env bash -c "export PATH=/usr/local/cuda-12.0/bin${PATH:+:${PATH}}"
-
 while true; do
 
-    nohup docker exec $miniconda /opt/conda/bin/conda run -n $env --no-capture-output jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser --allow-root > ./jupyter.log &
+    nohup docker exec $env jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser --allow-root > ./jupyter.log &
 
     sleep 5
     while true; do

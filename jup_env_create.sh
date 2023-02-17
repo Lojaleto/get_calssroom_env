@@ -10,22 +10,20 @@ docker run -i -d -p 8888:8888 \
 --mount type=bind,source=/opt/notebooks,target=/opt/notebooks \
 --name $env \
 --runtime=nvidia --gpus all \
-nvidia/cuda:12.0.1-runtime-ubuntu22.04 /bin/bash
+tensorflow/tensorflow:latest-jupyter /bin/bash
 
-docker exec $env mkdir /opt/notebooks
-docker exec $env apt update &> /dev/null
-docker exec $env apt install -y wget g++ freeglut3-dev build-essential libx11-dev libxmu-dev libxi-dev libglu1-mesa libglu1-mesa-dev libfreeimage-dev libglfw3-dev libglfw3-dev pip
-docker exec $env wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh &> /dev/null
-docker exec $env bash ./Miniconda3-latest-Linux-x86_64.sh -b -p /opt/conda
-docker exec $env /opt/conda/bin/conda install cuda -c nvidia
-docker exec $env python3 -m pip install --upgrade setuptools pip wheel
-docker exec $env python3 -m pip install nvidia-pyindex
-docker exec $env python3 -m pip install nvidia-cuda-runtime-cu12 nvidia-cuda-cupti-cu12 nvidia-cuda-nvcc-cu12 nvidia-nvml-dev-cu12 nvidia-cuda-nvrtc-cu12 nvidia-nvtx-cu12 nvidia-cuda-sanitizer-api-cu12 nvidia-cublas-cu12 nvidia-cufft-cu12 nvidia-curand-cu12 nvidia-cusolver-cu12 nvidia-cusparse-cu12 nvidia-npp-cu12 nvidia-nvjpeg-cu12 nvidia-nvjitlink-cu12
-docker exec $env wget "https://raw.githubusercontent.com/Lojaleto/get_calssroom_env/main/classroom.yml" &> /dev/null
-docker exec $env /opt/conda/bin/conda env create -f ./classroom.yml
-docker exec $env /opt/conda/bin/conda activate classroom
-docker exec $env /opt/conda/bin/conda install jupyter -y --quiet
+docker exec classroom mkdir /opt/notebooks
+docker exec classroom apt update &> /dev/null
+docker exec classroom apt upgrade -y
+docker exec classroom apt install -y wget g++ pip
+docker exec classroom python3 -m pip install --upgrade pip setuptools wheel nbformat ipykernel ipython ipython_genutils jupyter jupyter_client jupyter_console jupyter_core jupyterlab jupyterlab_server requests nest-asyncio
+docker exec classroom python3 -m pip install -U $(pip freeze | cut -d '=' -f 1)
 
-docker stop $env
+docker exec classroom python3 -m pip install nvidia-pyindex
+docker exec classroom python3 -m pip install nvidia-cuda-runtime-cu12 nvidia-cuda-cupti-cu12 nvidia-cuda-nvcc-cu12 nvidia-nvml-dev-cu12 nvidia-cuda-nvrtc-cu12 nvidia-nvtx-cu12 nvidia-cuda-sanitizer-api-cu12 nvidia-cublas-cu12 nvidia-cufft-cu12 nvidia-curand-cu12 nvidia-cusolver-cu12 nvidia-cusparse-cu12 nvidia-npp-cu12 nvidia-nvjpeg-cu12 nvidia-nvjitlink-cu12
+
+docker exec classroom python3 -m pip install beautifulsoup4 matplotlib nltk numpy pandas plotly psycopg2-binary regex scikit-learn scipy seaborn sqlalchemy statsmodels catboost lightgbm pillow pyspark transformers keras torch torchvision torchaudio
+
+docker stop classroom
 
 exit;
