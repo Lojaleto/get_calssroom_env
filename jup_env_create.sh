@@ -10,7 +10,7 @@ docker run -i -d -p 8888:8888 \
 --mount type=bind,source=/opt/notebooks,target=/opt/notebooks \
 --name $env \
 --runtime=nvidia --gpus all \
-tensorflow/tensorflow:latest-jupyter /bin/bash
+tensorflow/tensorflow:nightly-gpu-jupyter /bin/bash
 
 docker exec classroom mkdir /opt/notebooks
 docker exec classroom apt update &> /dev/null
