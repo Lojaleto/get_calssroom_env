@@ -36,7 +36,7 @@ while true; do
         read -p "Do you wish to S top miniconda or R estart jupyter?  " yn
         case $yn in
             [Ss]* ) docker stop $miniconda; exit;;
-            [Rr]* ) pkill -f jupyter;;
+            [Rr]* ) docker exec $env pkill -f jupyter; break;;
             * ) echo "Please answer S to close or R to restart";;
         esac
     done
