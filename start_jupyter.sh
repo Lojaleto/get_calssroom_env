@@ -33,7 +33,7 @@ while true; do
 
     while true; do
         echo $jpid
-        read -p "Do you wish to S top miniconda or R estart jupyter?  " yn
+        read -p "Do you wish to S top or R estart jupyter?  " yn
         case $yn in
             [Ss]* ) docker stop $miniconda; exit;;
             [Rr]* ) docker exec $env pkill -f jupyter; break;;
