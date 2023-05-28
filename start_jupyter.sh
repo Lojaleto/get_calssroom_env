@@ -6,11 +6,11 @@ docker start $env
 
 sleep 3
 while true; do
-    miniconda="$(docker ps | grep $env | awk '{ print $1 }')"
-    if [ -n "$miniconda" ]; then
-        echo "miniconda is running"
+    container="$(docker ps | grep $env | awk '{ print $1 }')"
+    if [ -n "$container" ]; then
+        echo "container is running"
         break;
-    else sleep 3; echo "miniconda is not running"
+    else sleep 3; echo "container is not running"
     fi
 done
 
@@ -35,7 +35,7 @@ while true; do
         echo $jpid
         read -p "Do you wish to S top or R estart jupyter?  " yn
         case $yn in
-            [Ss]* ) docker stop $miniconda; exit;;
+            [Ss]* ) docker stop $container; exit;;
             [Rr]* ) docker exec $env pkill -f jupyter; break;;
             * ) echo "Please answer S to close or R to restart";;
         esac
