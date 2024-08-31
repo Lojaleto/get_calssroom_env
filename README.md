@@ -6,9 +6,9 @@ script mount `/tf/` as `/tf/` in container.<br />
 this is the jupyter root folder.<br />
 
 it is assumed that you have linux (or wsl)<br />
-
-git clone git@github.com:Lojaleto/get_calssroom_env.git<br />
-
-run `env_create.sh` to install docker and nvidia container toolkit<br />
-
+```
+git clone git@github.com:Lojaleto/get_calssroom_env.git
+cd get_calssroom_env
+sudo ./env_create.sh
 docker compose up
+```
