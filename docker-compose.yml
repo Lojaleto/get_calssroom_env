@@ -1,0 +1,19 @@
+
+services:
+  classroom:
+    container_name: classroom
+    restart: always
+    build:
+      context: .
+      dockerfile: latest-gpu-jupyter/Dockerfile
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./tf/:/tf/
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
