@@ -5,7 +5,7 @@ based on tensorflow container
 script mount `/tf/` as `/tf/` in container.<br />
 this is the jupyter root folder.<br />
 
-it is assumed that you have linux (or wsl)<br />
+it is assumed that you have ubuntu/debian (or wsl2)<br />
 ```
 git clone git@github.com:Lojaleto/get_calssroom_env.git
 cd get_calssroom_env
