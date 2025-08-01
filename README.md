@@ -10,9 +10,10 @@ apt install nvidia-utils-XXX
 apt install nvidia-cuda-toolkit
 ```
 
+compatibility<br />
 https://developer.nvidia.com/cuda-gpus<br />
 https://developer.nvidia.com/cuda-legacy-gpus
-
+<br /><br />
 based on tensorflow container
 
 script mount `/tf/` as `/tf/` in container.<br />
