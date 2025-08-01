@@ -10,7 +10,7 @@ apt install nvidia-utils-XXX
 apt install nvidia-cuda-toolkit
 ```
 
-https://developer.nvidia.com/cuda-gpus
+https://developer.nvidia.com/cuda-gpus<br />
 https://developer.nvidia.com/cuda-legacy-gpus
 
 based on tensorflow container
