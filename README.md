@@ -6,6 +6,7 @@ you eed to find a suitable driver for your graphics card on the website https://
 
 ```
 apt install nvidia-driver-XXX
+apt install nvidia-utils-XXX
 apt install nvidia-cuda-toolkit
 ```
 
